@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package codewars;
+
+option go_package = "internal.generate.proto;codewars";
+
+service Codewars {
+  rpc GetUserInfo (GetUserInfoIn) returns (GetUserInfoOut);
+}
+
+message GetUserInfoIn {
+  string user = 1;
+}
+
+message GetUserInfoOut {
+  string username = 1;
+  string name = 2;
+  uint32 honor = 3;
+  string clan = 4;
+  int64 leaderboardPosition = 5;
+  repeated string skills = 6;
+  Ranks ranks = 7;
+  CodeChallenges codeChallenges = 8;
+
+  message Ranks {
+    Rank overall = 1;
+    map<string, Rank> languages = 2;
+  }
+
+  message Rank {
+    int64 rank = 1;
+    string name = 2;
+    string color = 3;
+    int64 score = 4;
+  }
+
+  message CodeChallenges {
+    uint32 totalAuthored = 1;
+    uint32 totalCompleted = 2;
+  }
+}
+
