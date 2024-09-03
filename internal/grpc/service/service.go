@@ -4,10 +4,11 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	codewars "github.com/yasonofriychuk/service-codewars/internal/generate/proto/service"
 	"io"
 	"net/http"
 	"net/url"
+
+	codewars "github.com/yasonofriychuk/service-codewars/internal/generated/proto/service"
 )
 
 type Service struct {
@@ -18,7 +19,7 @@ func New() *Service {
 	return &Service{}
 }
 
-func (s Service) GetUserInfo(ctx context.Context, in *codewars.GetUserInfoIn) (*codewars.GetUserInfoOut, error) {
+func (s *Service) GetUserInfo(ctx context.Context, in *codewars.GetUserInfoIn) (*codewars.GetUserInfoOut, error) {
 	requestUrl := fmt.Sprintf("https://www.codewars.com/api/v1/users/%s", url.PathEscape(in.GetUser()))
 
 	resp, err := http.Get(requestUrl)
