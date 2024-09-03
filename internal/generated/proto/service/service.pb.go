@@ -170,6 +170,100 @@ func (x *GetUserInfoOut) GetCodeChallenges() *GetUserInfoOut_CodeChallenges {
 	return nil
 }
 
+type GetUserStatsIn struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	User string `protobuf:"bytes,1,opt,name=user,proto3" json:"user,omitempty"`
+}
+
+func (x *GetUserStatsIn) Reset() {
+	*x = GetUserStatsIn{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_service_service_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetUserStatsIn) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserStatsIn) ProtoMessage() {}
+
+func (x *GetUserStatsIn) ProtoReflect() protoreflect.Message {
+	mi := &file_service_service_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserStatsIn.ProtoReflect.Descriptor instead.
+func (*GetUserStatsIn) Descriptor() ([]byte, []int) {
+	return file_service_service_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *GetUserStatsIn) GetUser() string {
+	if x != nil {
+		return x.User
+	}
+	return ""
+}
+
+type GetUserStatsOut struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Total int64 `protobuf:"varint,1,opt,name=total,proto3" json:"total,omitempty"`
+}
+
+func (x *GetUserStatsOut) Reset() {
+	*x = GetUserStatsOut{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_service_service_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetUserStatsOut) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetUserStatsOut) ProtoMessage() {}
+
+func (x *GetUserStatsOut) ProtoReflect() protoreflect.Message {
+	mi := &file_service_service_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetUserStatsOut.ProtoReflect.Descriptor instead.
+func (*GetUserStatsOut) Descriptor() ([]byte, []int) {
+	return file_service_service_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *GetUserStatsOut) GetTotal() int64 {
+	if x != nil {
+		return x.Total
+	}
+	return 0
+}
+
 type GetUserInfoOut_Ranks struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -182,7 +276,7 @@ type GetUserInfoOut_Ranks struct {
 func (x *GetUserInfoOut_Ranks) Reset() {
 	*x = GetUserInfoOut_Ranks{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_service_service_proto_msgTypes[2]
+		mi := &file_service_service_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -195,7 +289,7 @@ func (x *GetUserInfoOut_Ranks) String() string {
 func (*GetUserInfoOut_Ranks) ProtoMessage() {}
 
 func (x *GetUserInfoOut_Ranks) ProtoReflect() protoreflect.Message {
-	mi := &file_service_service_proto_msgTypes[2]
+	mi := &file_service_service_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -239,7 +333,7 @@ type GetUserInfoOut_Rank struct {
 func (x *GetUserInfoOut_Rank) Reset() {
 	*x = GetUserInfoOut_Rank{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_service_service_proto_msgTypes[3]
+		mi := &file_service_service_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -252,7 +346,7 @@ func (x *GetUserInfoOut_Rank) String() string {
 func (*GetUserInfoOut_Rank) ProtoMessage() {}
 
 func (x *GetUserInfoOut_Rank) ProtoReflect() protoreflect.Message {
-	mi := &file_service_service_proto_msgTypes[3]
+	mi := &file_service_service_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -308,7 +402,7 @@ type GetUserInfoOut_CodeChallenges struct {
 func (x *GetUserInfoOut_CodeChallenges) Reset() {
 	*x = GetUserInfoOut_CodeChallenges{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_service_service_proto_msgTypes[4]
+		mi := &file_service_service_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -321,7 +415,7 @@ func (x *GetUserInfoOut_CodeChallenges) String() string {
 func (*GetUserInfoOut_CodeChallenges) ProtoMessage() {}
 
 func (x *GetUserInfoOut_CodeChallenges) ProtoReflect() protoreflect.Message {
-	mi := &file_service_service_proto_msgTypes[4]
+	mi := &file_service_service_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -404,15 +498,24 @@ var file_service_service_proto_rawDesc = []byte{
 	0x18, 0x01, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0d, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x41, 0x75, 0x74,
 	0x68, 0x6f, 0x72, 0x65, 0x64, 0x12, 0x26, 0x0a, 0x0e, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f,
 	0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0d, 0x52, 0x0e, 0x74,
-	0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x32, 0x4c, 0x0a,
+	0x6f, 0x74, 0x61, 0x6c, 0x43, 0x6f, 0x6d, 0x70, 0x6c, 0x65, 0x74, 0x65, 0x64, 0x22, 0x24, 0x0a,
+	0x0e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x73, 0x49, 0x6e, 0x12,
+	0x12, 0x0a, 0x04, 0x75, 0x73, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x75,
+	0x73, 0x65, 0x72, 0x22, 0x27, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x74,
+	0x61, 0x74, 0x73, 0x4f, 0x75, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x05, 0x74, 0x6f, 0x74, 0x61, 0x6c, 0x32, 0x91, 0x01, 0x0a,
 	0x08, 0x43, 0x6f, 0x64, 0x65, 0x77, 0x61, 0x72, 0x73, 0x12, 0x40, 0x0a, 0x0b, 0x47, 0x65, 0x74,
 	0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x17, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x77,
 	0x61, 0x72, 0x73, 0x2e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x49,
 	0x6e, 0x1a, 0x18, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x77, 0x61, 0x72, 0x73, 0x2e, 0x47, 0x65, 0x74,
-	0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x4f, 0x75, 0x74, 0x42, 0x22, 0x5a, 0x20, 0x69,
-	0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x2e, 0x67, 0x65, 0x6e, 0x65, 0x72, 0x61, 0x74, 0x65,
-	0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x3b, 0x63, 0x6f, 0x64, 0x65, 0x77, 0x61, 0x72, 0x73, 0x62,
-	0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x55, 0x73, 0x65, 0x72, 0x49, 0x6e, 0x66, 0x6f, 0x4f, 0x75, 0x74, 0x12, 0x43, 0x0a, 0x0c, 0x47,
+	0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x73, 0x12, 0x18, 0x2e, 0x63, 0x6f,
+	0x64, 0x65, 0x77, 0x61, 0x72, 0x73, 0x2e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x74,
+	0x61, 0x74, 0x73, 0x49, 0x6e, 0x1a, 0x19, 0x2e, 0x63, 0x6f, 0x64, 0x65, 0x77, 0x61, 0x72, 0x73,
+	0x2e, 0x47, 0x65, 0x74, 0x55, 0x73, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x73, 0x4f, 0x75, 0x74,
+	0x42, 0x22, 0x5a, 0x20, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x2e, 0x67, 0x65, 0x6e,
+	0x65, 0x72, 0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x3b, 0x63, 0x6f, 0x64, 0x65,
+	0x77, 0x61, 0x72, 0x73, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -427,25 +530,29 @@ func file_service_service_proto_rawDescGZIP() []byte {
 	return file_service_service_proto_rawDescData
 }
 
-var file_service_service_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_service_service_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
 var file_service_service_proto_goTypes = []any{
 	(*GetUserInfoIn)(nil),                 // 0: codewars.GetUserInfoIn
 	(*GetUserInfoOut)(nil),                // 1: codewars.GetUserInfoOut
-	(*GetUserInfoOut_Ranks)(nil),          // 2: codewars.GetUserInfoOut.Ranks
-	(*GetUserInfoOut_Rank)(nil),           // 3: codewars.GetUserInfoOut.Rank
-	(*GetUserInfoOut_CodeChallenges)(nil), // 4: codewars.GetUserInfoOut.CodeChallenges
-	nil,                                   // 5: codewars.GetUserInfoOut.Ranks.LanguagesEntry
+	(*GetUserStatsIn)(nil),                // 2: codewars.GetUserStatsIn
+	(*GetUserStatsOut)(nil),               // 3: codewars.GetUserStatsOut
+	(*GetUserInfoOut_Ranks)(nil),          // 4: codewars.GetUserInfoOut.Ranks
+	(*GetUserInfoOut_Rank)(nil),           // 5: codewars.GetUserInfoOut.Rank
+	(*GetUserInfoOut_CodeChallenges)(nil), // 6: codewars.GetUserInfoOut.CodeChallenges
+	nil,                                   // 7: codewars.GetUserInfoOut.Ranks.LanguagesEntry
 }
 var file_service_service_proto_depIdxs = []int32{
-	2, // 0: codewars.GetUserInfoOut.ranks:type_name -> codewars.GetUserInfoOut.Ranks
-	4, // 1: codewars.GetUserInfoOut.codeChallenges:type_name -> codewars.GetUserInfoOut.CodeChallenges
-	3, // 2: codewars.GetUserInfoOut.Ranks.overall:type_name -> codewars.GetUserInfoOut.Rank
-	5, // 3: codewars.GetUserInfoOut.Ranks.languages:type_name -> codewars.GetUserInfoOut.Ranks.LanguagesEntry
-	3, // 4: codewars.GetUserInfoOut.Ranks.LanguagesEntry.value:type_name -> codewars.GetUserInfoOut.Rank
+	4, // 0: codewars.GetUserInfoOut.ranks:type_name -> codewars.GetUserInfoOut.Ranks
+	6, // 1: codewars.GetUserInfoOut.codeChallenges:type_name -> codewars.GetUserInfoOut.CodeChallenges
+	5, // 2: codewars.GetUserInfoOut.Ranks.overall:type_name -> codewars.GetUserInfoOut.Rank
+	7, // 3: codewars.GetUserInfoOut.Ranks.languages:type_name -> codewars.GetUserInfoOut.Ranks.LanguagesEntry
+	5, // 4: codewars.GetUserInfoOut.Ranks.LanguagesEntry.value:type_name -> codewars.GetUserInfoOut.Rank
 	0, // 5: codewars.Codewars.GetUserInfo:input_type -> codewars.GetUserInfoIn
-	1, // 6: codewars.Codewars.GetUserInfo:output_type -> codewars.GetUserInfoOut
-	6, // [6:7] is the sub-list for method output_type
-	5, // [5:6] is the sub-list for method input_type
+	2, // 6: codewars.Codewars.GetUserStats:input_type -> codewars.GetUserStatsIn
+	1, // 7: codewars.Codewars.GetUserInfo:output_type -> codewars.GetUserInfoOut
+	3, // 8: codewars.Codewars.GetUserStats:output_type -> codewars.GetUserStatsOut
+	7, // [7:9] is the sub-list for method output_type
+	5, // [5:7] is the sub-list for method input_type
 	5, // [5:5] is the sub-list for extension type_name
 	5, // [5:5] is the sub-list for extension extendee
 	0, // [0:5] is the sub-list for field type_name
@@ -482,7 +589,7 @@ func file_service_service_proto_init() {
 			}
 		}
 		file_service_service_proto_msgTypes[2].Exporter = func(v any, i int) any {
-			switch v := v.(*GetUserInfoOut_Ranks); i {
+			switch v := v.(*GetUserStatsIn); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -494,7 +601,7 @@ func file_service_service_proto_init() {
 			}
 		}
 		file_service_service_proto_msgTypes[3].Exporter = func(v any, i int) any {
-			switch v := v.(*GetUserInfoOut_Rank); i {
+			switch v := v.(*GetUserStatsOut); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -506,6 +613,30 @@ func file_service_service_proto_init() {
 			}
 		}
 		file_service_service_proto_msgTypes[4].Exporter = func(v any, i int) any {
+			switch v := v.(*GetUserInfoOut_Ranks); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_service_service_proto_msgTypes[5].Exporter = func(v any, i int) any {
+			switch v := v.(*GetUserInfoOut_Rank); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_service_service_proto_msgTypes[6].Exporter = func(v any, i int) any {
 			switch v := v.(*GetUserInfoOut_CodeChallenges); i {
 			case 0:
 				return &v.state
@@ -524,7 +655,7 @@ func file_service_service_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_service_service_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   8,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

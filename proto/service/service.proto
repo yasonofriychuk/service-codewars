@@ -6,6 +6,7 @@ option go_package = "internal.generate.proto;codewars";
 
 service Codewars {
   rpc GetUserInfo (GetUserInfoIn) returns (GetUserInfoOut);
+  rpc GetUserStats (GetUserStatsIn) returns (GetUserStatsOut);
 }
 
 message GetUserInfoIn {
@@ -40,3 +41,10 @@ message GetUserInfoOut {
   }
 }
 
+message GetUserStatsIn {
+  string user = 1;
+}
+
+message GetUserStatsOut {
+  int64 total = 1;
+}

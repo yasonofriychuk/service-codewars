@@ -19,7 +19,8 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Codewars_GetUserInfo_FullMethodName = "/codewars.Codewars/GetUserInfo"
+	Codewars_GetUserInfo_FullMethodName  = "/codewars.Codewars/GetUserInfo"
+	Codewars_GetUserStats_FullMethodName = "/codewars.Codewars/GetUserStats"
 )
 
 // CodewarsClient is the client API for Codewars service.
@@ -27,6 +28,7 @@ const (
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type CodewarsClient interface {
 	GetUserInfo(ctx context.Context, in *GetUserInfoIn, opts ...grpc.CallOption) (*GetUserInfoOut, error)
+	GetUserStats(ctx context.Context, in *GetUserStatsIn, opts ...grpc.CallOption) (*GetUserStatsOut, error)
 }
 
 type codewarsClient struct {
@@ -47,11 +49,22 @@ func (c *codewarsClient) GetUserInfo(ctx context.Context, in *GetUserInfoIn, opt
 	return out, nil
 }
 
+func (c *codewarsClient) GetUserStats(ctx context.Context, in *GetUserStatsIn, opts ...grpc.CallOption) (*GetUserStatsOut, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(GetUserStatsOut)
+	err := c.cc.Invoke(ctx, Codewars_GetUserStats_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // CodewarsServer is the server API for Codewars service.
 // All implementations must embed UnimplementedCodewarsServer
 // for forward compatibility.
 type CodewarsServer interface {
 	GetUserInfo(context.Context, *GetUserInfoIn) (*GetUserInfoOut, error)
+	GetUserStats(context.Context, *GetUserStatsIn) (*GetUserStatsOut, error)
 	mustEmbedUnimplementedCodewarsServer()
 }
 
@@ -64,6 +77,9 @@ type UnimplementedCodewarsServer struct{}
 
 func (UnimplementedCodewarsServer) GetUserInfo(context.Context, *GetUserInfoIn) (*GetUserInfoOut, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetUserInfo not implemented")
+}
+func (UnimplementedCodewarsServer) GetUserStats(context.Context, *GetUserStatsIn) (*GetUserStatsOut, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetUserStats not implemented")
 }
 func (UnimplementedCodewarsServer) mustEmbedUnimplementedCodewarsServer() {}
 func (UnimplementedCodewarsServer) testEmbeddedByValue()                  {}
@@ -104,6 +120,24 @@ func _Codewars_GetUserInfo_Handler(srv interface{}, ctx context.Context, dec fun
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Codewars_GetUserStats_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetUserStatsIn)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(CodewarsServer).GetUserStats(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Codewars_GetUserStats_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(CodewarsServer).GetUserStats(ctx, req.(*GetUserStatsIn))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Codewars_ServiceDesc is the grpc.ServiceDesc for Codewars service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -114,6 +148,10 @@ var Codewars_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetUserInfo",
 			Handler:    _Codewars_GetUserInfo_Handler,
+		},
+		{
+			MethodName: "GetUserStats",
+			Handler:    _Codewars_GetUserStats_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
