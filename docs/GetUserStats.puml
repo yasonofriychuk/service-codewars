@@ -1,0 +1,27 @@
+@startuml
+actor       Bot         as bot
+participant Service     as s
+
+participant Wrapper     as wrap
+database    Postgres    as db
+database    Redis    as redis
+participant CodeWarsAPI     as api
+
+bot -> s: GetUserStats
+
+s -> wrap: ListCompletedChallenges
+wrap -> redis: ListCompletedChallenges
+redis -> wrap: Resp, exist
+
+alt "not exist"
+    wrap -> api: ListCompletedChallenges
+    api -> wrap: Resp
+    wrap -> redis: SET cache
+    wrap -> s: Resp
+end
+
+s -> db: GetChallengesByIDs
+s -> s: Calc stats
+s -> bot: Resp
+
+@enduml
